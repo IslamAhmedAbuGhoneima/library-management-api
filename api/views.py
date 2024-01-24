@@ -17,14 +17,12 @@ def singup(request):
         data = request.data
         serializer = SingupSerializer(data=data)
         if serializer.is_valid():
-            user = User.objects.create(
-                username=data['username'],
-                email=data['email'],
-                password=make_password(data['password'])
-            )
-            user.save()
+            validated_data = serializer.validated_data
+            validated_data['password'] = make_password(
+                serializer.validated_data['password'])
+            serializer.save()
             return Response({
-                'Message': "User Created successfully"
+                'Message': f"User {serializer.data['username']} Created successfully"
             }, status=status.HTTP_201_CREATED)
         else:
             return Response({

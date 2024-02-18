@@ -29,7 +29,11 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'rest_framework',
     'rest_framework_simplejwt',
+<<<<<<< HEAD
     'drf_yasg',
+=======
+    'rest_framework_simplejwt.token_blacklist',
+>>>>>>> 40b950de00f661959442435f21e1360f323654f7
 ]
 
 REST_FRAMEWORK = {

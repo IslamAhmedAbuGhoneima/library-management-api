@@ -2,11 +2,15 @@ from django.contrib import admin
 from .models import *
 # Register your models here.
 
-
 class AutherAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
     search_fields = ['id', 'name']
     list_filter = ['name']
+
+
+
+
+
 
 
 admin.site.register(Auther, AutherAdmin)
